@@ -1,4 +1,0 @@
-﻿  BuildMe.cpp
-d:\sync\workspace_s\ocyon\utrex_link\main.cpp(52): warning C4267: '=': conversion from 'size_t' to 'u16', possible loss of data
-  UTREX_Link.vcxproj -> D:\Sync\WorkSpace_S\Ocyon\UTREX_Link\VisualStudio\Debug\UTREX_Link.exe
-  UTREX_Link.vcxproj -> D:\Sync\WorkSpace_S\Ocyon\UTREX_Link\VisualStudio\Debug\UTREX_Link.pdb (Full PDB)
