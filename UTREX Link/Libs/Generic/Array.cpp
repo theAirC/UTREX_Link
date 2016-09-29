@@ -6,11 +6,13 @@ struct Array {
     const size_t Length;
     T* const Data;
 
-    T& operator [](size_t i) {
+    T& operator [](size_t i)
+    {
         return Data[i];
     }
 
-    bool operator ==(const Array<T> &OtherArray) const {
+    bool operator ==(Array<T> &OtherArray)
+    {
         size_t minLen = MIN(Length, OtherArray.Length);
         for (size_t i = 0; i < minLen; i++) {
             if (Data[i] != OtherArray.Data[i]) return false;
@@ -19,12 +21,15 @@ struct Array {
     }
 
     Array(size_t Size, T Data[])
-        : Length(Size), Data(Data) {}
+        : Length(Size), Data(Data)
+    {}
 
     Array(size_t Size)
-        : Array(Size, new T[Size]) {}
+        : Array(Size, new T[Size])
+    {}
 
-    inline void Fill(T value) {
+    void Fill(T value)
+    {
         for (size_t i = 0; i < Length; i++) Data[i] = value;
     }
 };

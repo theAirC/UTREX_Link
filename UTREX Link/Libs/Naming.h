@@ -17,17 +17,10 @@ typedef uint64_t u64;
 
 typedef u8 byte;
 
-#define MSb(x)      (byte)((x) & ~(~0 >> 1))
-#define LSb(x)      (byte)((x) & 1)
-
-#define MASK(x)     (~((x) - 1))
-#define SBI(r,b)    (r |=  (1 << (b)))
-#define CBI(r,b)    (r &= ~(1 << (b)))
-#define VAL(r,b)    (r &   (1 << (b)))
-
-#define Jk(r,J,k)   r = ( ((J) & ~(r)) | ((k) & (r)) )
+#define MSb(x)      ((x) & ~(~0 >> 1))
+#define LSb(x)      ((x) & 1)
 
 #define asize(x)    (sizeof(x)/sizeof(x[0]))
 
-#define _fill(array, item) for(byte i = 0; i < asize(array); i++) array[i] = item;
-#define _store(reg, array) for(byte i = 0; i < asize(array); i++) item = array[i];
+#define max(x)      ((x)(~0))
+#define maxCount(x) ((size_t)max(x) + 1)
