@@ -7,7 +7,9 @@ int main(int argc, char* argv[])
 
     //SDL_JoystickEventState(SDL_IGNORE);
 
+
     printf("\n""[=] %i joysticks were found.", SDL_NumJoysticks());
+	if (SDL_NumJoysticks() <= 0) return 0;
     printf("\n""[=] The names of the joysticks are:");
 
     for(int i = 0; i < SDL_NumJoysticks(); i++) {
@@ -49,7 +51,7 @@ int main(int argc, char* argv[])
 
     Curves.push_back(new Curve);
     // Warning: if you use "u16 i" instead of "size_t i" the loop will never end
-    for (size_t i = 0; i < 64 * 1024; i++) Curves[0]->Points[i] = i;
+    for (size_t i = 0; i < 64 * 1024; i++) Curves[0]->Points[i] = (u16)i;
 
     Outputs.push_back(new Output);
     Outputs[0]->myCurve = Curves[0];

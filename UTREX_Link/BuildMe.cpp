@@ -6,19 +6,19 @@
 //  The order of #include statements is important.
 //  No other file may be built, or there will be multiple definition errors during linking.
 
+#include <stddef.h>
 #include <stdio.h>
 #include <cstdlib>
 
 #include <SDL.h>
 
-#include "Naming.h"
+#include "Libs/Naming.h"
 #include "Libs/Math/SimpleMath.h"
-
-#include "Error.c"
-
 #include "Libs/Generic/Array.cpp"
 #include "Libs/Generic/Bits.cpp"
 #include <vector>
+
+#include "Error.c"
 
 #include "ValueRanges.h"
 
@@ -30,5 +30,7 @@
 #include "Core/Output.cpp"
 
 #include "Core/Memory.cpp"
+
+#include "Libs/Serial/BuildMe.cpp"
 
 #include "main.cpp"

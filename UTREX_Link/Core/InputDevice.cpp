@@ -15,6 +15,7 @@ public:
           States(StateCount),
           Buttons(ButtonCount)
     {}
+    virtual ~InputDevice() {};
 
     virtual void Update() = 0;
 };
