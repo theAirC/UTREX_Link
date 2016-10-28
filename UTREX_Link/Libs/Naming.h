@@ -21,6 +21,3 @@ typedef u8 byte;
 #define LSb(x)      ((x) & 1)
 
 #define asize(x)    (sizeof(x)/sizeof(x[0]))
-
-#define max(x)      ((x)(~0))
-#define maxCount(x) ((size_t)max(x) + 1)

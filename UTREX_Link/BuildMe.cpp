@@ -31,6 +31,6 @@
 
 #include "Core/Memory.cpp"
 
-#include "Libs/Serial/BuildMe.cpp"
+#include "../../serial/src/serial/serial.h"
 
 #include "main.cpp"

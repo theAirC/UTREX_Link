@@ -38,6 +38,7 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="SDL/lib" />
 		</Linker>
+		<Unit filename="../../../serial/src/Serial.cpp" />
 		<Unit filename="../BuildMe.cpp" />
 		<Unit filename="../Core/Canonical.h" />
 		<Unit filename="../Core/Curve.cpp">

@@ -7,7 +7,6 @@ int main(int argc, char* argv[])
 
     //SDL_JoystickEventState(SDL_IGNORE);
 
-
     printf("\n""[=] %i joysticks were found.", SDL_NumJoysticks());
 	if (SDL_NumJoysticks() <= 0) return 0;
     printf("\n""[=] The names of the joysticks are:");
@@ -50,19 +49,48 @@ int main(int argc, char* argv[])
     }
 
     Curves.push_back(new Curve);
-    // Warning: if you use "u16 i" instead of "size_t i" the loop will never end
-    for (size_t i = 0; i < 64 * 1024; i++) Curves[0]->Points[i] = (u16)i;
+    // Warning: if you use "u16 i" instead of "u32 i" the loop will never end
+    for (u32 i = 0; i < 64 * 1024; i++) Curves[0]->Points[i] = (u16)i;
 
     Outputs.push_back(new Output);
     Outputs[0]->myCurve = Curves[0];
     Outputs[0]->myMixer = Mixers[0];
 
-    while (1) {
-		SDL_Delay(500);
-		SDL_JoystickUpdate();
-		for (size_t i = 0; i < InputDevices.size(); i++) InputDevices[i]->Update();
-        printf("\n""%d", Outputs[0]->Get());
-    }
+	try {
+		serial::Serial ms("COM5", 56000);
+		ms.setDTR(1);
+
+		const byte Serial_LineByteCount = 8;
+
+		byte msg[2 + 2 * Serial_LineByteCount]; // double to allow headroom for additional escape bytes
+
+		msg[0] = 0xBF;
+		msg[1] = 0x00;
+
+		while (1) {
+			SDL_Delay(100);
+
+			SDL_JoystickUpdate();
+			for (size_t i = 0; i < InputDevices.size(); i++) InputDevices[i]->Update();
+        
+			u16 v = Outputs[0]->Get();
+
+			byte k = 2;
+			for (byte i = 0; i < Serial_LineByteCount; i++) {
+				// MSB first
+				msg[k] = v >> 8;
+				if (msg[k] == 0xBF) msg[++k] = ~0; // escape byte
+				k++;
+				msg[k] = v & 0xFF;
+				if (msg[k] == 0xBF) msg[++k] = ~0; // escape byte
+				k++;
+			}
+
+			ms.write(msg, k);
+		}
+	} catch (std::exception &e) {
+		LogDie(e.what());
+	}
 
 
     /*

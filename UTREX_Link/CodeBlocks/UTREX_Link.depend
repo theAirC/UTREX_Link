@@ -385,3 +385,400 @@
 
 1475072905 d:\sync\workspace_s\ocyon\utrex_link\libs\generic\bits.cpp
 
+1477654065 source:d:\sync\workspace_s\ocyon\utrex_link\utrex_link\buildme.cpp
+	<stddef.h>
+	<stdio.h>
+	<cstdlib>
+	<SDL.h>
+	"Libs/Naming.h"
+	"Libs/Math/SimpleMath.h"
+	"Libs/Generic/Array.cpp"
+	"Libs/Generic/Bits.cpp"
+	<vector>
+	"Error.c"
+	"ValueRanges.h"
+	"Core/Canonical.h"
+	"Core/InputDevice.cpp"
+	"Core/Mixer.cpp"
+	"MixerLib/MixerLib.cpp"
+	"Core/Curve.cpp"
+	"Core/Output.cpp"
+	"Core/Memory.cpp"
+	"../../serial/src/serial/serial.h"
+	"main.cpp"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\begin_code.h
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\close_code.h
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\codeblocks\sdl\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1477654055 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\libs\naming.h
+	<stdint.h>
+
+1475165603 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\libs\math\simplemath.h
+
+1475176382 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\libs\generic\array.cpp
+
+1475165603 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\libs\generic\bits.cpp
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\error.c
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\valueranges.h
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\core\canonical.h
+
+1477216909 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\core\inputdevice.cpp
+
+1475164886 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\core\mixer.cpp
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\mixerlib\mixerlib.cpp
+	"DirectMixers.cpp"
+	"CommonMixers.cpp"
+	"CustomMixers.cpp"
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\mixerlib\directmixers.cpp
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\mixerlib\commonmixers.cpp
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\mixerlib\custommixers.cpp
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\core\curve.cpp
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\core\output.cpp
+
+1475163504 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\core\memory.cpp
+
+1477653379 d:\sync\workspace_s\ocyon\serial\src\serial\serial.h
+	<limits>
+	<vector>
+	<string>
+	<cstring>
+	<sstream>
+	<exception>
+	<stdexcept>
+	"v8stdint.h"
+
+1477653379 d:\sync\workspace_s\ocyon\serial\src\serial\v8stdint.h
+	<stddef.h>
+	<stdio.h>
+	<stdint.h>
+
+1475234350 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\main.cpp
+	"loop.cpp"
+
+1475163505 d:\sync\workspace_s\ocyon\utrex_link\utrex_link\loop.cpp
+
