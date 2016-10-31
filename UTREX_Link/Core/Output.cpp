@@ -1,11 +1,13 @@
 
 struct Output
 {
-    Curve* myCurve;
     Mixer* myMixer;
+	Curve myCurve;
+
+	Output(Curve myCurve) : myCurve(myCurve) {}
 
     u16 Get()
     {
-        return myCurve->Points[myMixer->Mix()];
+        return myCurve.Points[myMixer->Mix()];
     }
 };

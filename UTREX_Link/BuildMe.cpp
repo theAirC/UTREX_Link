@@ -16,6 +16,7 @@
 #include "Libs/Math/SimpleMath.h"
 #include "Libs/Generic/Array.cpp"
 #include "Libs/Generic/Bits.cpp"
+#include "Libs/Generic/Stack.cpp"
 #include <vector>
 
 #include "Error.c"
@@ -32,5 +33,6 @@
 #include "Core/Memory.cpp"
 
 #include "../../serial/src/serial/serial.h"
+#include "Serial.cpp"
 
 #include "main.cpp"
