@@ -7,22 +7,52 @@
 
 #include "CustomMixers.cpp" // Add your own mixers to this file
 
-// Register your Mixer here, like the examples.
-const MixerMaker MixerList[] = {
+namespace MixerLib {
 
-// Direct Mixers
-    MakeMixer< Mixer_DirectDelta >,
-    MakeMixer< Mixer_DirectRange >,
-    MakeMixer< Mixer_DPadStateY >,
-    MakeMixer< Mixer_DPadStateX >,
-    MakeMixer< Mixer_DirectButton >,
+	// MixerMaker: a pointer to a function that generates a new mixer of some type
+	typedef Mixer *(*MixerMaker)();
+	// MakeMixer: a template function that generates a new mixer of the given type
+	template <class MixerType> Mixer *MakeMixer() { return new MixerType; }
 
-// Common Mixers
-    MakeMixer< Mixer_ThrottleAndBrake >,
-    MakeMixer< Mixer_Average >,
-    MakeMixer< Mixer_Difference >,
-    MakeMixer< Mixer_RangeIfButton >,
+	// MixerEntry: a struct that holds both the factory (generator function) of a mixer type and its name
+	struct MixerEntry
+	{
+		MixerMaker generator;
+		std::string name;
+	};
 
-// Custom Mixers
+	// a useful macro that simplifies mixer type registration in the MixerList
+	#define _MixerEntry(x) { MakeMixer<x>, #x }
 
-};
+	// Register your Mixer here, like the examples.
+	const MixerEntry MixerList[] = {
+
+		// Direct Mixers
+		_MixerEntry(DirectDelta),
+		_MixerEntry(DirectRange),
+		_MixerEntry(DPadStateY),
+		_MixerEntry(DPadStateX),
+		_MixerEntry(DirectButton),
+
+		// Common Mixers
+		_MixerEntry(ThrottleAndBrake),
+		_MixerEntry(Average),
+		_MixerEntry(Difference),
+		_MixerEntry(RangeIfButton),
+
+		// Custom Mixers
+		//_MixerEntry(my_awesome_mixer_s_name),
+
+	};
+
+	MixerMaker FindMixer(const std::string MixerName)
+	{
+		for (size_t i = 0; i < asize(MixerList); i++) {
+			if (MixerList[i].name == MixerName) {
+				return MixerList[i].generator;
+			}
+		}
+		return nullptr;
+	}
+
+}
