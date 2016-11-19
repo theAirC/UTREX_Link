@@ -12,18 +12,16 @@
 
 #include <SDL.h>
 
-#include "Libs/Naming.h"
-#include "Libs/Math/SimpleMath.h"
-#include "Libs/Generic/Array.cpp"
-#include "Libs/Generic/Bits.cpp"
-#include "Libs/Generic/Stack.cpp"
+#include "../../Libs/Libs/Naming.h"
+#include "../../Libs/Libs/Math/SimpleMath.h"
+#include "../../Libs/Libs/Generic/Array.cpp"
+//#include "../../Libs/Libs/Generic/Bits.cpp"
+#include "../../Libs/Libs/Generic/Stack.cpp"
 #include <vector>
 
 #include "Error.c"
 
-#include "ValueRanges.h"
-
-#include "Core/Canonical.h"
+#include "Core/Types.h"
 #include "Core/InputDevice.cpp"
 #include "Core/Mixer.cpp"
 #include "MixerLib/MixerLib.cpp"
@@ -34,5 +32,10 @@
 
 #include "../../serial/src/serial/serial.h"
 #include "Serial.cpp"
+
+#include "../../json/src/json.hpp"
+using JSON = nlohmann::json;
+
+#include "Config.cpp"
 
 #include "main.cpp"

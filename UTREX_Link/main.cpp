@@ -1,72 +1,82 @@
 
 #include "loop.cpp"
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     ifdieSDL(SDL_Init(SDL_INIT_JOYSTICK | SDL_INIT_HAPTIC));
 
-    //SDL_JoystickEventState(SDL_IGNORE);
-
-    printf("\n""[=] %i joysticks were found.", SDL_NumJoysticks());
-	ifdie(SDL_NumJoysticks() <= 0);
-    printf("\n""[=] The names of the joysticks are:");
-
-    for(int i = 0; i < SDL_NumJoysticks(); i++) {
-        printf("\n""\t""%s\n", SDL_JoystickNameForIndex(i));
-
-        SDL_Joystick* joystick = SDL_JoystickOpen(i);
-        printf("\n""\t""%s\n", SDL_JoystickName(joystick));
-        if (SDL_JoystickIsHaptic(joystick)) printf("\n""\t\t""with haptic");
-
-        InputDevices.push_back(new InputJoystick(joystick));
-    }
-
-    for(size_t i = 0; i < InputDevices.size(); i++) {
-        printf("\n""Deltas:  %d", InputDevices[i]->Deltas.Length);
-        printf("\n""Ranges:  %d", InputDevices[i]->Ranges.Length);
-        printf("\n""States:  %d", InputDevices[i]->States.Length);
-        printf("\n""Buttons: %d", InputDevices[i]->Buttons.Count);
-    }
-
-    // Set up a input-mixer-output stream for testing
-
-    Mixers.push_back(MixerList[1]()); // make a new mixer of the first type in the list
-
-    for (size_t i = 0; i < Mixers[0]->Deltas.Length; i++) {
-        Mixers[0]->Deltas[i] = &(InputDevices[0]->Deltas[i]);
-    }
-
-    for (size_t i = 0; i < Mixers[0]->Ranges.Length; i++) {
-        Mixers[0]->Ranges[i] = &(InputDevices[0]->Ranges[i]);
-    }
-
-    for (size_t i = 0; i < Mixers[0]->States.Length; i++) {
-        Mixers[0]->States[i] = &(InputDevices[0]->States[i]);
-    }
-
-    for (size_t i = 0; i < Mixers[0]->Buttons.Length; i++) {
-        Mixers[0]->Buttons[i] = InputDevices[0]->Buttons.GetPointer(i);
-    }
-
-    Outputs.push_back(new Output(CurveLib.Identity));
-    Outputs[0]->myMixer = Mixers[0];
-
 	try {
-		Serial mySerial("COM5");
+		// myConfig will hold the current configuration
+		// if the config file does not exist, it will be automatically created
+		Config myConfig("config.json");
 
-		mySerial.myOutputs.push_back(Outputs[0]);
+		// read the config file and parse it
+		// a faulty or incomplete file will be automatically fixed
+		// This also populates the memory with the appropriate Mixers and Outputs,
+		// as well as 'dummy' InputDevices.
+		ifdie(myConfig.load() < 0);
 
-		while (1) {
-			SDL_Delay(20);
+		//SDL_JoystickEventState(SDL_IGNORE);
 
-			SDL_JoystickUpdate();
-			for (size_t i = 0; i < InputDevices.size(); i++) InputDevices[i]->Update();
-			
-			mySerial.SendOutputs();
+		printf("\n""[=] %i joysticks were found.", SDL_NumJoysticks());
+		printf("\n""[=] The names of the joysticks are:");
+
+		for(int i = 0; i < SDL_NumJoysticks(); i++) {
+			SDL_Joystick *joystick = SDL_JoystickOpen(i);
+			printf("\n""\t""%s", SDL_JoystickName(joystick));
+			if (SDL_JoystickIsHaptic(joystick)) printf("\n""\t\t""with haptic");
+
+			// Check if the joystick is already into configuration, if not then add it.
+			// This is automatically done by myConfig.
+			myConfig.updateInput(SDL_JoystickGetGUID(joystick), new InputJoystick(joystick));
 		}
-	} catch (std::exception &e) {
-		LogDie(e.what());
-	}
+
+		myConfig.mapInputs();
+		myConfig.save();
+
+		printf("\n""[=] InputDevices:");
+		for(size_t i = 0; i < InputDevices.size(); i++) {
+			printf("\n""\t""%u:", i);
+			printf("\n""\t""\t""Deltas:  %u", InputDevices[i]->Deltas.Length);
+			printf("\n""\t""\t""Ranges:  %u", InputDevices[i]->Ranges.Length);
+			printf("\n""\t""\t""States:  %u", InputDevices[i]->States.Length);
+			printf("\n""\t""\t""Buttons: %u", InputDevices[i]->Buttons.Length);
+		}
+
+        Serial mySerial("COM3", 12);
+
+		for (size_t i = 0; i < Outputs.size(); i++) mySerial.myOutputs.push_back(Outputs[i]);
+
+        while (1) {
+            SDL_Delay(20);
+
+            SDL_JoystickUpdate();
+            for (size_t i = 0; i < InputDevices.size(); i++) InputDevices[i]->Update();
+            
+            mySerial.SendOutputs();
+
+            Stack<byte> *TelemData = mySerial.getTelem();
+            if (TelemData != nullptr) {
+                for (byte i = 0; i < 8; i+=2) printf("%04umV ", (TelemData->Data[i] << 8) | TelemData->Data[i + 1]);
+                printf("\n");
+                delete TelemData;
+            }
+        }
+		/*
+        while (1) {
+            SDL_Delay(20);
+
+            SDL_JoystickUpdate();
+            for (size_t i = 0; i < InputDevices.size(); i++) InputDevices[i]->Update();
+
+			printf("\n");
+			for (size_t i = 0; i < Outputs.size(); i++) printf(" %5u",Outputs[i]->Get());
+        }
+		*/
+
+    } catch (std::exception &e) {
+        LogDie(e.what());
+    }
 
 
     /*
