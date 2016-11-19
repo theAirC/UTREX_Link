@@ -1,10 +1,13 @@
 
 struct Output
 {
-    Mixer* myMixer;
 	Curve myCurve;
+	Mixer *myMixer;
 
+	Output() {}
+	Output(Mixer *myMixer) : myMixer(myMixer) {}
 	Output(Curve myCurve) : myCurve(myCurve) {}
+	Output(Curve myCurve, Mixer *myMixer) : myCurve(myCurve), myMixer(myMixer) {}
 
     u16 Get()
     {
