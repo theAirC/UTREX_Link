@@ -1,0 +1,125 @@
+{
+    "InputControls": [
+        [
+            0,
+            4,
+            1,
+            12
+        ],
+        [
+            0,
+            3,
+            0,
+            8
+        ]
+    ],
+    "InputGUIDs": [
+        [
+            163,
+            6,
+            12,
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            80,
+            73,
+            68,
+            86,
+            73,
+            68
+        ],
+        [
+            94,
+            4,
+            52,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            80,
+            73,
+            68,
+            86,
+            73,
+            68
+        ]
+    ],
+    "InputNames": [
+        "Input Device 0",
+        "Input Device 1"
+    ],
+    "MapMixer": [
+        [
+            [],
+            [
+                [
+                    1,
+                    0
+                ]
+            ],
+            [],
+            []
+        ],
+        [
+            [],
+            [
+                [
+                    1,
+                    1
+                ],
+                [
+                    1,
+                    2
+                ]
+            ],
+            [],
+            []
+        ]
+    ],
+    "MapOutput": [
+        [
+            0
+        ],
+        [
+            1
+        ]
+    ],
+    "MixerNames": [
+        "DirectRange",
+        "ThrottleAndBrake"
+    ],
+    "OutputChannels": [
+        [
+            "Steering"
+        ],
+        [
+            "Throttle"
+        ]
+    ],
+    "OutputCurves": [
+        [
+            [
+                "SineX",
+                0,
+                4
+            ]
+        ],
+        [
+            [
+                "Identity",
+                16384,
+                4
+            ]
+        ]
+    ],
+    "OutputPorts": [
+        "COM3"
+    ]
+}
