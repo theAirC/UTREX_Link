@@ -4,20 +4,27 @@
 class InputDevice
 {
 public:
-    Array<Delta> Deltas;
-    Array<Range> Ranges;
-    Array<State> States;
-    Buttons_t Buttons;
+    Array<Delta_t>  Deltas;
+    Array<Range_t>  Ranges;
+    Array<State_t>  States;
+	Array<Button_t> Buttons;
+    //Buttons_t Buttons;
 
     InputDevice(size_t DeltaCount, size_t RangeCount, size_t StateCount, size_t ButtonCount)
         : Deltas(DeltaCount),
           Ranges(RangeCount),
           States(StateCount),
           Buttons(ButtonCount)
-    {}
+    {
+        Deltas.Fill(Delta_Center);
+        Ranges.Fill(Range_Center);
+        States.Fill(State_Center);
+		Buttons.Fill(Button_Center);
+        //Buttons.ClearAll();
+    }
     virtual ~InputDevice() {};
 
-    virtual void Update() = 0;
+    virtual void Update() {};
 };
 
 class InputJoystick : public InputDevice
@@ -42,16 +49,16 @@ public:
         }
 
         for (size_t i = 0; i < Ranges.Length; i++) {
-            Ranges[i] = SDL_JoystickGetAxis(myJoystick, i) + 0x8000;
+            Ranges[i] = ~(SDL_JoystickGetAxis(myJoystick, i) + 0x8000);
         }
 
         for (size_t i = 0; i < States.Length; i++) {
             States[i] = SDL_JoystickGetHat(myJoystick, i);
         }
 
-        // Unfortunately, SDL requires us to poll each button individually
-        for (size_t i = 0; i < Buttons.Count; i++) {
-            Buttons.Apply(i, SDL_JoystickGetButton(myJoystick, i));
+        for (size_t i = 0; i < Buttons.Length; i++) {
+			Buttons[i] = SDL_JoystickGetButton(myJoystick, i);
+            //Buttons.Apply(i, SDL_JoystickGetButton(myJoystick, i));
         }
     }
 };
