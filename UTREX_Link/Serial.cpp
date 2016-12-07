@@ -24,11 +24,11 @@ struct Serial
 
 		Stack<byte> BufferTX(256); // a large buffer to hold the data to send
 
-		printf("\n");
+		//printf("\n");
 		// Then generate/read the outputs one-by-one and write to the buffer.
 		for (size_t i = 0; i < Outputs.size(); i++) {
 			u16 v = Outputs[i]->Get();
-			printf(" %5u", v);
+			//printf(" %05u", v);
 			byte temp;
 
 			temp = v >> 8; // MSB first

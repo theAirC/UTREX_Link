@@ -23,12 +23,14 @@ int main(int argc, char *argv[])
 
 		for(int i = 0; i < SDL_NumJoysticks(); i++) {
 			SDL_Joystick *joystick = SDL_JoystickOpen(i);
-			printf("\n""\t""%s", SDL_JoystickName(joystick));
-			if (SDL_JoystickIsHaptic(joystick)) printf("\n""\t\t""with haptic");
+			if (joystick) {
+				printf("\n""\t""%s", SDL_JoystickName(joystick));
+				if (SDL_JoystickIsHaptic(joystick)) printf("\n""\t\t""with haptic");
 
-			// Check if the joystick is already into configuration, if not then add it.
-			// This is automatically done by myConfig.
-			myConfig.updateInput(SDL_JoystickGetGUID(joystick), new InputJoystick(joystick));
+				// Check if the joystick is already into configuration, if not then add it.
+				// This is automatically done by myConfig.
+				myConfig.updateInput(SDL_JoystickGetGUID(joystick), new InputJoystick(joystick));
+			}
 		}
 
 		myConfig.mapInputs();
@@ -43,22 +45,28 @@ int main(int argc, char *argv[])
 			printf("\n""\t""\t""Buttons: %u", InputDevices[i]->Buttons.Length);
 		}
 
-        Serial mySerial("COM3", 12);
+        Serial mySerial("COM3", 33);
 
 		for (size_t i = 0; i < Outputs.size(); i++) mySerial.myOutputs.push_back(Outputs[i]);
 
         while (1) {
             SDL_Delay(20);
 
-            SDL_JoystickUpdate();
+            // TODO Process possible joystick (re)connects (SDL_JoyDeviceEvent ?)
+			// like:
+			// foreach newly connected joystick i
+			// j = open(i)
+			// if (j) myConfig.updateInput(SDL_JoystickGetGUID(j), new InputJoystick(j));
+			SDL_JoystickUpdate();
             for (size_t i = 0; i < InputDevices.size(); i++) InputDevices[i]->Update();
             
             mySerial.SendOutputs();
 
             Stack<byte> *TelemData = mySerial.getTelem();
             if (TelemData != nullptr) {
-                for (byte i = 0; i < 8; i+=2) printf("%04umV ", (TelemData->Data[i] << 8) | TelemData->Data[i + 1]);
-                printf("\n");
+				printf("\n""%03u |", TelemData->Data[0]);
+                for (byte i = 1; i < 9; i += 2) printf(" %04umV", (TelemData->Data[i] << 8) | TelemData->Data[i + 1]);
+				for (byte i = 13; i < 33; i++) printf(" %03u", TelemData->Data[i]);
                 delete TelemData;
             }
         }
