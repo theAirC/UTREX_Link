@@ -18,11 +18,11 @@ public:
         if (!SDL_FileHandle) return -1;
 
         // our FileSize is in chars, SDL returns the size in bytes
-        size_t FileSize = upperdiv(SDL_RWsize(SDL_FileHandle), sizeof(char)); // usually sizeof(char) == 1, so no division is done
+        s64 FileSize = upperdiv(SDL_RWsize(SDL_FileHandle), sizeof(char)); // usually sizeof(char) == 1, so no division is done
         if (FileSize < 0) return -1;
         
-		char *FileContent = new char[FileSize + 1]; // 1 more to add termination
-        size_t actualSize = SDL_RWread(SDL_FileHandle, &FileContent[0], sizeof(char), FileSize); // actualSize is in chars
+		char *FileContent = new char[(size_t)FileSize + 1]; // 1 more to add termination
+		size_t actualSize = SDL_RWread(SDL_FileHandle, &FileContent[0], sizeof(char), (size_t)FileSize); // actualSize is in chars
 		FileContent[actualSize] = '\0';
 		SDL_RWclose(SDL_FileHandle);
 
@@ -53,11 +53,13 @@ public:
             for (size_t j = 0; j < json["OutputCurves"][i].size(); j++) {
 				JSON curve = json["OutputCurves"][i][j];
 				std::string name = curve[0];
-				u64 scale = curve[1];
-				u64 params = curve[2];
+				u16 scale = curve[1];
+				u16 offset = curve[2];
+				u32 params = curve[3];
                 
                 Output *o = new Output(Curve(("Curves/" + name + ".bin").data()));
 				o->myCurve.applyScale(scale);
+				o->myCurve.applyOffset(offset);
 				o->myCurve.processParams(params);
                 Outputs.push_back(o);
 

@@ -85,10 +85,10 @@
     ],
     "MapOutput": [
         [
-            0
+            1
         ],
         [
-            1
+            0
         ]
     ],
     "MixerNames": [
@@ -97,16 +97,17 @@
     ],
     "OutputChannels": [
         [
-            "Steering"
+            "Throttle"
         ],
         [
-            "Throttle"
+            "Steering"
         ]
     ],
     "OutputCurves": [
         [
             [
-                "SineX",
+                "Identity",
+                16384,
                 0,
                 4
             ]
@@ -114,7 +115,8 @@
         [
             [
                 "Identity",
-                16384,
+                32768,
+                0,
                 4
             ]
         ]

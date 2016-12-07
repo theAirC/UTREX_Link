@@ -2,6 +2,7 @@
 struct Curve
 {
 	u16 Scale;
+	u16 Offset;
 	bool Inverted;
 	bool isMirrorX;
 	bool isMirrorCenter;
@@ -38,7 +39,15 @@ struct Curve
 	{
 		Scale = newScale;
 
-		if (Scale != 0) for (u32 i = 0; i < asize(Points); i++) Points[i] = rounddiv(Points[i] * Scale, 64 * 1024);
+		if (Scale != 0) for (u32 i = 0; i < asize(Points); i++) Points[i] = roundshift(Points[i] * Scale, 16);
+		// roundshift used instead of rounddiv, to prevent overflow
+	}
+
+	void applyOffset(u16 newOffset)
+	{
+		Offset = newOffset;
+
+		for (u32 i = 0; i < asize(Points); i++) Points[i] = Math::min(Points[i] + Offset, 0xFFFF);
 	}
 
 	void MirrorX()
