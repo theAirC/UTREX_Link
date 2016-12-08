@@ -1,0 +1,39 @@
+{
+    "InputNames": [ "Input Device 0", "Input Device 1", "Input Device 2" ],
+
+    "InputGUIDs": [ [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                    [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                    [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] ],
+
+    "InputControls": [ [0, 1],
+                       [1, 1, 0, 2],
+                       [1, 3, 3] ],
+
+    "MixerNames": [ "Direct", "Direct", "TnB", "Btn", "DR" ],
+
+    "MixerInputs": [ [ 1 ],
+                     [ 0 ],
+                     [ 0, 2 ],
+                     [ 0, 1, 2, 3 ],
+                     [ 1 ] ],
+
+    "OutputNames": [ "Output Device 0", "Output Device 1" ],
+
+    "OutputRIDs": [ [0,1,2,3,4,5,6,7],
+                    [0,1,2,3,4,5,6,7] ],
+
+    "OutputChannels": [ ["Ch 0", "Servo", "Motor", "Steering", "Flag"],
+                        ["Left", "Right"] ],
+ 
+    "OutputCurves": [ ["identity", "expo", "expo20", "sineh", "sinv"],
+                      ["expo", "identity"] ],
+
+    "MapOutput": [ [ [2, 0], [0, 0], [1,0], [1,0], [0,0] ],
+                   [ [3, 0], [4, 0] ] ],
+
+    "MapMixer": [ [ [1, 2] ],
+                  [ [0, 1] ],
+                  [ [0, 0], [2, 2] ],
+                  [ [0, 0], [2, 1], [1, 2], [1, 3] ],
+                  [ [1, 0] ] ]
+}

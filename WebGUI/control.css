@@ -1,0 +1,87 @@
+
+.ControlGroup {
+    width: 288px;
+    margin: 24px;
+}
+
+.ControlBar p {
+    margin-left: 16px;
+}
+
+.ControlGroup>div {
+    margin-bottom: 6px;
+}
+
+.ControlHeader {
+    background: #007fff;
+    height: 36px;
+    line-height: 36px;
+    font-size: 26px;
+}
+
+.ControlHeader img {
+    height: 16px;
+    width: 20px;
+    padding: 10px 8px;
+    float: left;
+    margin-right: 4px;
+}
+
+.ControlHeader img:hover {
+    cursor: pointer;
+    background: #dfdfdf !important;
+}
+
+.ControlBar {
+    background: #ff7f00;
+    height: 24px;
+    line-height: 24px;
+    font-size: 22px;
+}
+
+.ControlBar div {
+    width: 24px;
+    height: 24px;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+
+.ControlPad:hover {
+    cursor: crosshair;
+    background: #dfdf00;
+}
+
+
+.ControlTools {
+    margin-bottom: 0 !important;
+    height: 24px;
+    background: #bfbfbf;
+}
+
+.ControlTools img {
+    height: 24px;
+    width: 32px;
+    padding: 0px 2px;
+}
+
+.ControlTools img:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+#InputDevices .ControlBar div {
+    float: right;
+}
+
+.ControlHeader div {
+    width: 36px;
+    height: 36px;
+    margin-right: -18px;
+    float: right;
+}
+
+.ControlPad {
+    background: inherit;
+    border-radius: 100%;
+}
